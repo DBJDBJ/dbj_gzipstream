@@ -1,0 +1,3 @@
+[submodule "dbjcore"]
+	path = dbjcore
+	url = https://github.com/on-the-cloud-side/dbjcore.git
