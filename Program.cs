@@ -1,4 +1,4 @@
-#define USE_RANDOM_STRING_SPECIMEN
+//#define USE_RANDOM_STRING_SPECIMEN
 using System.Text;
 using BenchmarkDotNet.Running;
 using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
@@ -34,9 +34,8 @@ sealed class Program
 
     public void Run()
     {
-        var bencmhark = new BenchmarkCompression();
-        bencmhark.GZipCompress();
-        bencmhark.BrotliCompress();
+        GZipCompressor.test();
+        Brotli.test();
     }
 
     public static void Main()

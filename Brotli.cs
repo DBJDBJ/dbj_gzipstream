@@ -62,14 +62,15 @@ internal sealed class Brotli
 
     public static void test()
     {
-        Console.WriteLine("Length of original string: " + Program.originalString.Length);
+        DBJcore.Writeln("Brotli compression testing");
+        DBJcore.Writeln("Length of original string: " + Program.originalString.Length);
         byte[] dataToCompress = System.Text.Encoding.UTF8.GetBytes(Program.originalString);
         byte[] compressedData = Brotli.Compress(dataToCompress);
         string compressedString = Convert.ToBase64String(compressedData);
-        Console.WriteLine("Length of compressed string: " + compressedString.Length);
+        DBJcore.Writeln("Length of compressed string: " + compressedString.Length);
         byte[] decompressedData = Brotli.Decompress(compressedData);
         string deCompressedString = Convert.ToBase64String(decompressedData);
-        Console.WriteLine("Length of decompressed string: " + deCompressedString.Length);
+        DBJcore.Writeln("Length of decompressed string: " + deCompressedString.Length);
     }
 
 } // BrotliStream

@@ -63,15 +63,17 @@ internal class GZipCompressor
 
     public static void test()
     {
-        Console.WriteLine("Length of original string: " + Program.originalString.Length);
+        DBJcore.Writeln("GZip compression testing");
+
+        DBJcore.Writeln("Length of original string: " + Program.originalString.Length);
         byte[] dataToCompress = Encoding.UTF8.GetBytes(Program.originalString);
         byte[] compressedData = GZipCompressor.Compress(dataToCompress);
 
         string compressedString = Encoding.UTF8.GetString(compressedData);
-        Console.WriteLine("Length of compressed string: " + compressedString.Length);
+        DBJcore.Writeln("Length of compressed string: " + compressedString.Length);
         byte[] decompressedData = GZipCompressor.Decompress(compressedData);
         string deCompressedString = Encoding.UTF8.GetString(decompressedData);
-        Console.WriteLine("Length of decompressed string: " + deCompressedString.Length);
+        DBJcore.Writeln("Length of decompressed string: " + deCompressedString.Length);
 
     }
 }
