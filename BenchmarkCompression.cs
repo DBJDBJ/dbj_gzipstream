@@ -6,13 +6,13 @@ namespace gzipstream;
 [MemoryDiagnoser]
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
-internal sealed class BenchmarkCompression
+public sealed class BenchmarkCompression
 {
     readonly string originalString = string.Empty ;
 
-    public BenchmarkCompression(string specimen)
+    public BenchmarkCompression( )
     {
-        originalString = specimen;
+        originalString = Program.originalString;
     }
 
     [Benchmark]
