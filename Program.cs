@@ -5,15 +5,24 @@ namespace gzipstream;
 
 sealed class Program
 {
-    internal readonly static string originalString = "To work with BenchmarkDotNet you must install the BenchmarkDotNet package. " +
-    "You can do this either via the NuGet Package Manager inside the Visual Studio IDE, " +
-    "or by executing the Install-Package BenchmarkDotNet command at the NuGet Package Manager Console";
+    internal static readonly string originalString = string.Empty;
 
-    public static void Main()
+    public Program()
+    {
+        var originalString = Cfg.get<string>("string_to_compress", "NOT CONFIGURED THIS IS ERROR SIGNAL");
+    }
+
+    public void Run()
     {
         var bencmhark = new BenchmarkCompression(originalString);
         bencmhark.GZipCompress();
         bencmhark.BrotliCompress();
+    }
+
+    public static void Main()
+    {
+        var app = new Program();
+        app.Run();
     }
 
 } // Program

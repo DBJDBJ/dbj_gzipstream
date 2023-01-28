@@ -1,6 +1,7 @@
 using System.IO.Compression;
 using System.Net;
-
+#pragma warning disable SYSLIB0014
+//latter todo: https://stackoverflow.com/a/71553153/10870835
 internal sealed class gzipstream_web_request_response
 {
 
@@ -46,3 +47,5 @@ internal sealed class gzipstream_web_request_response
         }
     } // test
 } // internal class  gzipstream_web_request_response
+
+#pragma warning restore SYSLIB0014

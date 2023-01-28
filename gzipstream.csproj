@@ -9,6 +9,17 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.4" />
+    <!-- for dbjcore logging concept -->
+    <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <!-- for dbjcore configuration concept -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+  <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+  <Content Include="appsettings.json">
+<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+</Content>
   </ItemGroup>
 
 </Project>
