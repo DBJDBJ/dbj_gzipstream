@@ -8,7 +8,7 @@ namespace gzipstream;
 [RankColumn]
 internal sealed class BenchmarkCompression
 {
-    string originalString;
+    readonly string originalString = string.Empty ;
 
     public BenchmarkCompression(string specimen)
     {
