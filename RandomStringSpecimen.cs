@@ -4,24 +4,40 @@ using System.Text;
 using System.Net;
 
 // .NET7
-internal class StringSpecimen : IDisposable
+internal class RandomStringSpecimen : IDisposable
 {
     
     byte[] bytes = Array.Empty<byte>();
     private  string payload_ = string.Empty;
     private  string url_encoded_payload_ = string.Empty;
 
-    static readonly int max_block_count = 64;
-    
+    // externaly configured
+    static readonly short max_block_count = 0 ;
+
+    static  short MaxBlockCount { 
+        get {
+        return max_block_count; 
+        } 
+     } 
+
+    static RandomStringSpecimen()
+    {
+        max_block_count = DBJCfg.get<short>("max_block_count", 0 /* provokes exception */ );
+
+        if (max_block_count < 1)
+        throw new Exception("key: 'max_block_count' not found in: " + DBJCfg.FileName);
+
+    }
+
     private readonly int byte_size_ = 0; // can not be 0
 
     private readonly int payload_size_ = 0;
     private readonly int url_encode_payload_size_ = 0; 
 
-    public StringSpecimen ( short block_count_ = 64 )
+    public RandomStringSpecimen ( short block_count_ = 64 )
 	{
         if ((block_count_ < 1) || (block_count_ > max_block_count))
-            throw new ArgumentOutOfRangeException("requirement not satisfied:  0 < block_count_ <= 64");
+            throw new ArgumentOutOfRangeException($"requirement not satisfied:  0 < block_count_ <= {max_block_count}");
 
         byte_size_ = block_count_ * 1024;
         bytes = new byte[byte_size_]; // 64 * 1024 = 64KB

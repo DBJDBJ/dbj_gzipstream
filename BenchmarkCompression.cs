@@ -3,14 +3,15 @@ using BenchmarkDotNet.Attributes;
 
 namespace gzipstream;
 
+// must be public class and cannot be sealed
 [MemoryDiagnoser]
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
-public sealed class BenchmarkCompression
+public class BenchmarkCompression
 {
-    readonly string originalString = string.Empty ;
+    readonly string originalString = string.Empty;
 
-    public BenchmarkCompression( )
+    public BenchmarkCompression()
     {
         originalString = Program.originalString;
     }
