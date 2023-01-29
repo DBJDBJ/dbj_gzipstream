@@ -9,11 +9,17 @@ namespace gzipstream;
 [RankColumn]
 public class BenchmarkCompression
 {
-    readonly string originalString = string.Empty;
-
-    public BenchmarkCompression()
+    static readonly string originalString = string.Empty;
+    static BenchmarkCompression ()
     {
-        originalString = Program.originalString;
+#if USE_RANDOM_STRING_SPECIMEN
+        using (var specimen_ = new RandomStringSpecimen())
+        {
+            originalString = specimen_.UrlEncodedRandomString;
+        }
+#else
+        originalString = new StringSpecimen().Payload;
+#endif
     }
 
     [Benchmark]
@@ -25,6 +31,13 @@ public class BenchmarkCompression
 
     [Benchmark]
     public void BrotliCompress()
+    {
+        byte[] dataToCompress = Encoding.UTF8.GetBytes(originalString);
+        var compressedData = Brotli.Compress(dataToCompress);
+    }
+
+    [Benchmark]
+    public void DeflatorCompress()
     {
         byte[] dataToCompress = Encoding.UTF8.GetBytes(originalString);
         var compressedData = Brotli.Compress(dataToCompress);
