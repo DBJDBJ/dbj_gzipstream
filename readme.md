@@ -12,10 +12,10 @@
 
 DeflateStream is also added just to make it more ... whatever. But it is not.
 
-**GZip** consistently wins and most importanly can be uses as JSON string value.
-
-Brotli also has some issue of reconstructing the original? There must be some obvious explanation.
+**GZip** consistently wins and most importanly can be used in a JSON string value.
 </h3>
+
+Brotli also has some issue reconstructing the original? There must be some obvious explanation.
 
 ---
 Table Of Contents
