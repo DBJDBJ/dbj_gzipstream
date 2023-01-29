@@ -1,8 +1,14 @@
+using System.Diagnostics;
 using System.IO.Compression;
 using System.Text;
+using Xunit;
 
 namespace gzipstream;
-internal class GZipCompressor
+
+/// <summary>
+/// test classes must be public
+/// </summary>
+public class GZipCompressor
 {
 
     public static byte[] Compress(byte[] bytes)
@@ -61,9 +67,10 @@ internal class GZipCompressor
     }
     #endregion
 
-    public static void test()
+    [Fact]
+    public void test()
     {
-        DBJcore.Writeln("GZip compression testing");
+        DBJcore.Writeln("GZip compression testing ---------------------------------------------------");
 
         DBJcore.Writeln("Length of original string: " + Program.originalString.Length);
         byte[] dataToCompress = Encoding.UTF8.GetBytes(Program.originalString);
@@ -74,6 +81,8 @@ internal class GZipCompressor
         byte[] decompressedData = GZipCompressor.Decompress(compressedData);
         string deCompressedString = Encoding.UTF8.GetString(decompressedData);
         DBJcore.Writeln("Length of decompressed string: " + deCompressedString.Length);
+
+        Assert.Equal(Program.originalString.Length, deCompressedString.Length);
 
     }
 }

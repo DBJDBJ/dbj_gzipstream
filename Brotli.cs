@@ -1,12 +1,25 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using Xunit;
 
 namespace gzipstream;
-internal sealed class Brotli
+
+/// <summary>
+/// uses the BrotliStream for string compression decompression
+/// </summary>
+public sealed class Brotli
 {
+    /// <summary>
+    /// compress the array of bytes
+    /// </summary>
+    /// <param name="bytes">make sure array size is > 1</param>
+    /// <returns>compressed array of bytes given</returns>
     public static byte[] Compress(byte[] bytes)
     {
+        Debug.Assert(bytes.Length > 0);
+        
         using (var memoryStream = new MemoryStream())
         {
             using (var brotli_ = new BrotliStream(memoryStream, CompressionLevel.Optimal))
@@ -17,8 +30,15 @@ internal sealed class Brotli
         }
     }
 
+    /// <summary>
+    /// decompress the array of bytes
+    /// </summary>
+    /// <param name="bytes">make sure array size is > 1</param>
+    /// <returns>decompressed array of bytes given</returns>
     public static byte[] Decompress(byte[] bytes)
     {
+        Debug.Assert(bytes.Length > 0);
+
         using (var memoryStream = new MemoryStream(bytes))
         {
             using (var outputStream = new MemoryStream())
@@ -60,17 +80,31 @@ internal sealed class Brotli
     }
     #endregion
 
-    public static void test()
+    [Fact]
+    public void test()
     {
-        DBJcore.Writeln("Brotli compression testing");
+        // this goes to file thus it is perfectly usable from 
+        // unit tests, unlike Console which is not
+        DBJcore.Writeln("Brotli compression testing ------------------------------------------");
         DBJcore.Writeln("Length of original string: " + Program.originalString.Length);
+        /// transform to UTF8 byte []
         byte[] dataToCompress = System.Text.Encoding.UTF8.GetBytes(Program.originalString);
-        byte[] compressedData = Brotli.Compress(dataToCompress);
+        /// compress the byte []
+        byte[] compressedData = Brotli.Compress(dataToCompress) ;
+        /// arrive to string 
         string compressedString = Convert.ToBase64String(compressedData);
         DBJcore.Writeln("Length of compressed string: " + compressedString.Length);
+
+        /// decompress the byte []
         byte[] decompressedData = Brotli.Decompress(compressedData);
+        /// gt the string and its length
         string deCompressedString = Convert.ToBase64String(decompressedData);
         DBJcore.Writeln("Length of decompressed string: " + deCompressedString.Length);
+
+        // this is net core
+        //Debug.Assert(Program.originalString.Length == deCompressedString.Length);
+        // and this is Xunit
+        Assert.Equal (Program.originalString.Length, deCompressedString.Length);
     }
 
 } // BrotliStream

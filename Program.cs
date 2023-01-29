@@ -1,4 +1,5 @@
-#define USE_RANDOM_STRING_SPECIMEN
+// #define USE_RANDOM_STRING_SPECIMEN
+using System.Diagnostics;
 using System.Text;
 using BenchmarkDotNet.Running;
 using Gee.External.Capstone.M68K;
@@ -14,12 +15,15 @@ sealed class Program
     static string configuredString = string.Empty;
     static string randomString = string.Empty;
 
-    public Program()
+    /// <summary>
+    /// prepare data before program starts. make sure this ctor is not
+    /// accidentaly called from other static ctors
+    /// </summary>
+    static Program()
     {
         configuredString = DBJCfg.get<string>("string_to_compress", "ERROR");
 
-        if (configuredString == "ERROR")
-            throw new Exception("key: 'string_to_compress' not found in: " +  DBJCfg.FileName );
+        Debug.Assert(configuredString != "ERROR");
 
         short configured_specimen_blocks = DBJCfg.get<short>("specimen_blocks", 0 /* provokes exception */ );
 
@@ -42,10 +46,13 @@ sealed class Program
 
     public void Run()
     {
-        GZipCompressor.test();
-        Brotli.test();
+        // these are both XUnit "facts"
+        //GZipCompressor.test();
+        //Brotli.test();
     }
 
+#if ! DEBUG
+    //[STAThread]
     public static void Main()
     {
         try
@@ -64,6 +71,6 @@ sealed class Program
 
         DBJcore.Writeln("Finished " + DBJLog.app_friendly_name);
     }
-
+#endif // RELEASE
 } // Program
 
