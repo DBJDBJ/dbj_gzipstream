@@ -1,5 +1,7 @@
-# [How to compress and decompress strings in C#](https://www.infoworld.com/article/3660629/how-to-compress-and-decompress-strings-in-c-sharp.html) 
+# [Benchmark C# string compression and decompression ](https://www.infoworld.com/article/3660629/how-to-compress-and-decompress-strings-in-c-sharp.html) 
 <h3>&nbsp;</h3>
+
+> Build in VStudio. Run the release build for benchmarking.
 
 <h3> Take advantage of the GZip and Brotli compression methods to reduce the size of string data and improve performance in your .NET Core applications.</h3>
 <h3>&nbsp;</h3>
@@ -9,7 +11,7 @@
 
 Table Of Contents
 
-- [How to compress and decompress strings in C#](#how-to-compress-and-decompress-strings-in-c)
+- [Benchmark C# string compression and decompression ](#benchmark-c-string-compression-and-decompression-)
   - [The System.IO.Compression namespace in C#](#the-systemiocompression-namespace-in-c)
   - [Compress and decompress data using GZip in C#](#compress-and-decompress-data-using-gzip-in-c)
   - [Running the GZip compression algorithm](#running-the-gzip-compression-algorithm)
