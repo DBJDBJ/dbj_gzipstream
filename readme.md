@@ -4,7 +4,7 @@
 
 > Build in VStudio. Run the release build for benchmarking.
 
-<h3> Take advantage of the GZip and Brotli compression methods to reduce the size of string data and improve performance in your .NET Core applications.</h3>
+<h3> Compare .NET Core GZip and Brotli compression methods to reduce the size of string data and improve performance in your .NET Core applications.</h3>
 
 <h3>&nbsp;</h3>
 
