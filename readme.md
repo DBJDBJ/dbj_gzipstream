@@ -1,4 +1,5 @@
-# [Benchmark C# string compression and decompression ](https://www.infoworld.com/article/3660629/how-to-compress-and-decompress-strings-in-c-sharp.html) 
+
+# [Benchmark .NET Core, C# string compression and decompression ](https://www.infoworld.com/article/3660629/how-to-compress-and-decompress-strings-in-c-sharp.html) 
 <h3>&nbsp;</h3>
 
 > Build in VStudio. Run the release build for benchmarking.
@@ -11,7 +12,7 @@
 
 Table Of Contents
 
-- [Benchmark C# string compression and decompression ](#benchmark-c-string-compression-and-decompression-)
+- [Benchmark .NET Core, C# string compression and decompression ](#benchmark-net-core-c-string-compression-and-decompression-)
   - [The System.IO.Compression namespace in C#](#the-systemiocompression-namespace-in-c)
   - [Compress and decompress data using GZip in C#](#compress-and-decompress-data-using-gzip-in-c)
   - [Running the GZip compression algorithm](#running-the-gzip-compression-algorithm)
