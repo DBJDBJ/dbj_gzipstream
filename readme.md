@@ -9,7 +9,7 @@ Hint: Names of the projects are hints, which is which.
 >
 > For benchmarking run `stringcompsressdecompressbench` only in release mode
 >
-> For Xunit testing run `stringcompsressdecompresstest` in whichever build you lije
+> For Xunit testing run `stringcompsressdecompresstest` in whichever build you like
 >
 Everything uses https://github.com/on-the-cloud-side/dbjcore as a submodule
 
