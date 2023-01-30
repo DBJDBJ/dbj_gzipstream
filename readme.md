@@ -1,12 +1,19 @@
 
 # [Benchmark .NET Core, C# string compression and decompression ](https://www.infoworld.com/article/3660629/how-to-compress-and-decompress-strings-in-c-sharp.html) 
-<h3>&nbsp;</h3>
 
-> Xunit and DotNetBenchmarking can not coexist in one project. Thus we have two projects.
-> Build in VStudio. Must run the release build for benchmarking. Debug for testing.
-> Hint: Names of the projects are hints, which is which.
+---
+
+Xunit and DotNetBenchmarking can not coexist in one project. Thus we have two projects.
+Build in VStudio. Must run the release build for benchmarking. Debug for testing.
+Hint: Names of the projects are hints, which is which.
 >
-> Everything uses https://github.com/on-the-cloud-side/dbjcore as a submodule
+> For benchmarking run `stringcompsressdecompressbench` only in release mode
+>
+> For Xunit testing run `stringcompsressdecompresstest` in whichever build you lije
+>
+Everything uses https://github.com/on-the-cloud-side/dbjcore as a submodule
+
+---
 
 <h3> Compare .NET Core GZip and Brotli compression methods to reduce the size of string data and improve performance in your .NET Core applications.
 
