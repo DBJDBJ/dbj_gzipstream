@@ -4,7 +4,7 @@
 ---
 
 Xunit and DotNetBenchmarking can not coexist in one project. Thus we have two projects.
-Build in VStudio. Must run the release build for benchmarking. Debug for testing.
+WE are building them in VStudio. One must run the release build for benchmarking. Debug or release build for testing.
 Hint: Names of the projects are hints, which is which.
 >
 > For benchmarking run `stringcompsressdecompressbench` only in release mode
@@ -22,7 +22,7 @@ DeflateStream is also added just to make it more ... whatever. But it is not.
 **GZip** consistently wins and most importanly can be used in a JSON string value.
 </h3>
 
-Brotli also has some issue reconstructing the original? There must be some obvious explanation.
+Brotli also has some issue reconstructing the original? There must be some obvious explanation. What follows is what was an article found on the net.
 
 ---
 Table Of Contents
