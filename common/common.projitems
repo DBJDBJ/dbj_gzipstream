@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b0c76308-08ec-48ae-afb3-69c27b7495ff</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>common</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Brotli.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)dbjcore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Deflator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GZip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RandomStringSpecimen.cs" />
+  </ItemGroup>
+</Project>

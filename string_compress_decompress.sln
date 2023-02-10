@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stringcompsressdecompresste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stringcompsressdecompressbench", "benchmarking\stringcompsressdecompressbench.csproj", "{58CE5395-F846-4383-B356-8AD43B64A480}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "common", "common\common.shproj", "{B0C76308-08EC-48AE-AFB3-69C27B7495FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,5 +29,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F5FBDD6-0AF1-4EC0-AF89-7F1D7C7CFC63}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		common\common.projitems*{58ce5395-f846-4383-b356-8ad43b64a480}*SharedItemsImports = 5
+		common\common.projitems*{91e89cec-22af-4cdf-ae47-269b4c706c08}*SharedItemsImports = 5
+		common\common.projitems*{b0c76308-08ec-48ae-afb3-69c27b7495ff}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
