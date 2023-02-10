@@ -102,19 +102,20 @@ public class Tests_are_here
         /// compress the byte []
         byte[] compressedData = Brotli.Compress(dataToCompress) ;
         /// arrive to string 
-        string compressedString = Convert.ToBase64String(compressedData);
+        string compressedString = Convert.ToString(compressedData);
         writeln("Length of compressed string: " + compressedString.Length);
 
         /// decompress the byte []
         byte[] decompressedData = Brotli.Decompress(compressedData);
         /// gt the string and its length
-        string deCompressedString = Convert.ToBase64String(decompressedData);
-        writeln("Length of decompressed string: " + deCompressedString.Length);
+        var decompressed_string = System.Text.Encoding.UTF8.GetString(decompressedData);
+        // string deCompressedString = Convert.ToBase64String(decompressedData);
+        writeln("Length of decompressed string: " + decompressed_string.Length);
 
         // this is net core
         //Debug.Assert(originalString.Length == deCompressedString.Length);
         // and this is Xunit
-        Assert.Equal (originalString.Length, deCompressedString.Length);
+        Assert.Equal (originalString.Length, decompressed_string.Length);
     }
 } // Tests_are_here
 
