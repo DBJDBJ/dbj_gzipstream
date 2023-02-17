@@ -35,4 +35,6 @@
 
   <Import Project="..\common\common.projitems" Label="Shared" />
 
+  <Import Project="..\dbjcore\dbjcore.projitems" Label="Shared" />
+
 </Project>

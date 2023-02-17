@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Brotli.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)dbjcore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Deflator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GZip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RandomStringSpecimen.cs" />

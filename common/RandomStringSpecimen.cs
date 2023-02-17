@@ -35,7 +35,7 @@ internal class StringSpecimen
     {
         payload_ = DBJCfg.get<string>("string_to_compress", "ERROR");
         Debug.Assert(payload_ != "ERROR");
-        DBJcore.Writeln("Starting with CONFIGURED string specimen. Obtained from : " + DBJCfg.FileName );
+        DBJLog.info("Starting with CONFIGURED string specimen. Obtained from : " + DBJCfg.FileName );
         
         payload_size_ = payload_.Length;
 
@@ -67,7 +67,7 @@ internal class RandomStringSpecimen : StringSpecimen, IDisposable
         if (max_block_count < 1)
         {
             max_block_count = max_block_count_default;
-            DBJcore.Writerr("key: 'max_block_count' not found in: " + DBJCfg.FileName + ", going to use default value: " + max_block_count_default);
+            DBJLog.error("key: 'max_block_count' not found in: " + DBJCfg.FileName + ", going to use default value: " + max_block_count_default);
         }
 
         configured_specimen_blocks = DBJCfg.get<short>("specimen_blocks", 0 /* provokes exception */ );
@@ -75,7 +75,7 @@ internal class RandomStringSpecimen : StringSpecimen, IDisposable
         if (( configured_specimen_blocks < 1) || (configured_specimen_blocks > max_block_count) )
         {
             configured_specimen_blocks = 1;
-            DBJcore.Writerr("key: 'specimen_blocks' not found in: " + DBJCfg.FileName + ", going to use default value: " + 1);
+            DBJLog.error("key: 'specimen_blocks' not found in: " + DBJCfg.FileName + ", going to use default value: " + 1);
         }
 
     }
@@ -100,10 +100,10 @@ internal class RandomStringSpecimen : StringSpecimen, IDisposable
         payload_size_ = payload_.Length;
         url_encode_payload_size_ = url_encoded_payload_.Length;
 
-        DBJcore.Writeln("Starting with RANDOM string specimen");
-        DBJcore.Writeln("Byte Size: " + byte_size_);
-        DBJcore.Writeln("String Size: " + payload_size_);
-        DBJcore.Writeln("Url Encoded String Size: " + url_encode_payload_size_);
+        DBJLog.info("Starting with RANDOM string specimen");
+        DBJLog.info("Byte Size: " + byte_size_);
+        DBJLog.info("String Size: " + payload_size_);
+        DBJLog.info("Url Encoded String Size: " + url_encode_payload_size_);
     }
 
     /// <summary>

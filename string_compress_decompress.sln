@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stringcompsressdecompressbe
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "common", "common\common.shproj", "{B0C76308-08EC-48AE-AFB3-69C27B7495FF}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "dbjcore", "dbjcore\dbjcore.shproj", "{036CB2CD-FB71-4EB6-B3BF-660DC1CFEA41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,8 +33,11 @@ Global
 		SolutionGuid = {8F5FBDD6-0AF1-4EC0-AF89-7F1D7C7CFC63}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		dbjcore\dbjcore.projitems*{036cb2cd-fb71-4eb6-b3bf-660dc1cfea41}*SharedItemsImports = 13
 		common\common.projitems*{58ce5395-f846-4383-b356-8ad43b64a480}*SharedItemsImports = 5
+		dbjcore\dbjcore.projitems*{58ce5395-f846-4383-b356-8ad43b64a480}*SharedItemsImports = 5
 		common\common.projitems*{91e89cec-22af-4cdf-ae47-269b4c706c08}*SharedItemsImports = 5
+		dbjcore\dbjcore.projitems*{91e89cec-22af-4cdf-ae47-269b4c706c08}*SharedItemsImports = 5
 		common\common.projitems*{b0c76308-08ec-48ae-afb3-69c27b7495ff}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

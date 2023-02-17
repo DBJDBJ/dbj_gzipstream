@@ -33,10 +33,10 @@ internal sealed class Program
            var summary = BenchmarkRunner.Run<BenchmarkCompression>();
         } catch(Exception e)
         {
-            DBJcore.Writerr(e.Message);
+            DBJLog.error(e.Message);
         }
 
-        DBJcore.Writeln("Finished " + DBJLog.app_friendly_name);
+        DBJLog.info("Finished " + DBJLog.app_friendly_name);
     }
 } // Program
 
